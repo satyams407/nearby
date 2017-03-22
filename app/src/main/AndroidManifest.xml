@@ -22,7 +22,7 @@
         <!-- MainActivity -->
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"></activity>
+            android:label="Choose a category"></activity>
     </application>
 
 </manifest>
