@@ -150,10 +150,10 @@ public class Mylocation extends Service implements LocationListener {
         return longitude;
     }
 
-    /**
+    /*
      * Function to check GPS/wifi enabled
      * @return boolean
-     * */
+     *
     public boolean canGetLocation() {
         return this.canGetLocation;
     }
@@ -161,7 +161,7 @@ public class Mylocation extends Service implements LocationListener {
     /**
      * Function to show settings alert dialog
      * On pressing Settings button will lauch Settings Options
-     * */
+     *
     public void showSettingsAlert(){
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(mContext);
 
@@ -189,7 +189,7 @@ public class Mylocation extends Service implements LocationListener {
         // Showing Alert Message
         alertDialog.show();
     }
-
+*/
     @Override
     public void onLocationChanged(Location location) {
     }

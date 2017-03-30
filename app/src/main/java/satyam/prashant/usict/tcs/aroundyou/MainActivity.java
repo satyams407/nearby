@@ -36,22 +36,22 @@ public class MainActivity extends AppCompatActivity {
                                     int position, long id) {
                 switch (position) {
                     case 0:
-                        Toast.makeText(MainActivity.this, "You Clicked at movies ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "You Clicked at atm ", Toast.LENGTH_SHORT).show();
                         Intent movi = new Intent(MainActivity.this, Atm.class);
                         startActivity(movi);
                         break;
                     case 1:
-                        Toast.makeText(MainActivity.this, "You Clicked at plays ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "You Clicked at bar ", Toast.LENGTH_SHORT).show();
                        // Intent playsobj = new Intent(MainActivity.this, Plays.class);
                        // startActivity(playsobj);
                         break;
                     case 2:
-                        Toast.makeText(MainActivity.this, "You Clicked at sports ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "You Clicked at bank ", Toast.LENGTH_SHORT).show();
                         //Intent sportsobj = new Intent(MainActivity.this, Sports.class);
                         //startActivity(sportsobj);
                         break;
                     case 3:
-                        Toast.makeText(MainActivity.this, "You Clicked at Events ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "You Clicked at bus station ", Toast.LENGTH_SHORT).show();
                         //Intent eventsobj= new Intent(MainActivity.this,Events.class);
                         //startActivity(eventsobj);
                         break;
