@@ -36,7 +36,7 @@ import satyam.prashant.usict.tcs.aroundyou.R;
 public class Atm_maps extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
-        LocationListener {
+        LocationListener, View.OnClickListener {
 
     private GoogleMap mMap;
     double latitude;
@@ -77,6 +77,9 @@ public class Atm_maps extends FragmentActivity implements OnMapReadyCallback,
                 .addApi(Places.PLACE_DETECTION_API)
                 .enableAutoManage(this, (GoogleApiClient.OnConnectionFailedListener) this)
                 .build();
+
+        Button atm_b = (Button) findViewById(R.id.atm_button);
+        atm_b.setOnClickListener(this);
     }
 
 
@@ -119,35 +122,15 @@ public class Atm_maps extends FragmentActivity implements OnMapReadyCallback,
         }
         mMap.setMyLocationEnabled(true);
 
-
-        Button atm = (Button) findViewById(R.id.atm_button);
-        atm.setOnClickListener(new View.OnClickListener() {
-            String Restaurant = "restaurant";
-
-            @Override
-            public void onClick(View v) {
-                Log.d("onClick", "Button is Clicked");
-                mMap.clear();
-                String url = getUrl(latitude, longitude, Restaurant);
-                Object[] DataTransfer = new Object[2];
-                DataTransfer[0] = mMap;
-                DataTransfer[1] = url;
-                Log.d("onClick", url);
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-                getNearbyPlacesData.execute(DataTransfer);
-                Toast.makeText(Atm_maps.this, "Nearby Restaurants", Toast.LENGTH_LONG).show();
-            }
-        });
-
     }
+
 
     private boolean CheckGooglePlayServices() {
         GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
         int result = googleAPI.isGooglePlayServicesAvailable(this);
         if (result != ConnectionResult.SUCCESS) {
             if (googleAPI.isUserResolvableError(result)) {
-                googleAPI.getErrorDialog(this, result,
-                        0).show();
+                googleAPI.getErrorDialog(this, result, 0).show();
             }
             return false;
         }
@@ -191,7 +174,7 @@ public class Atm_maps extends FragmentActivity implements OnMapReadyCallback,
         googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
         googlePlacesUrl.append("&type=" + nearbyPlace);
         googlePlacesUrl.append("&sensor=true");
-        googlePlacesUrl.append("&key=" + "AIzaSyATuUiZUkEc_UgHuqsBJa1oqaODI-3mLs0");
+        googlePlacesUrl.append("&key=" + "AIzaSyCWc5XLE7xR9IV7vJj6hySHHCR2xlRs96g");
         Log.d("getUrl", googlePlacesUrl.toString());
         return (googlePlacesUrl.toString());
     }
@@ -223,9 +206,9 @@ public class Atm_maps extends FragmentActivity implements OnMapReadyCallback,
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-        Toast.makeText(Atm_maps.this,"Your Current Location", Toast.LENGTH_LONG).show();
+        Toast.makeText(Atm_maps.this, "Your Current Location", Toast.LENGTH_LONG).show();
 
-        Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f",latitude,longitude));
+        Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f", latitude, longitude));
 
         //stop location updates
         if (mGoogleApiClient != null) {
@@ -242,7 +225,8 @@ public class Atm_maps extends FragmentActivity implements OnMapReadyCallback,
     }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    public boolean checkLocationPermission(){
+
+    public boolean checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -307,4 +291,19 @@ public class Atm_maps extends FragmentActivity implements OnMapReadyCallback,
         }
     }
 
+    @Override
+    public void onClick(View view) {
+        String atm = "ATM";
+        Log.d("onClick", "Button is Clicked");
+        mMap.clear();
+        String url = getUrl(latitude, longitude, atm);
+        Object[] DataTransfer = new Object[2];
+        DataTransfer[0] = mMap;
+        DataTransfer[1] = url;
+        Log.d("onClick", url);
+        GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+        getNearbyPlacesData.execute(DataTransfer);
+        Toast.makeText(Atm_maps.this, "Nearby atm are shown ", Toast.LENGTH_LONG).show();
+    }
 }
+
