@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AroundYou.iml" filepath="$PROJECT_DIR$/AroundYou.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/nearby.iml" filepath="$PROJECT_DIR$/nearby.iml" />
     </modules>
   </component>
 </project>
