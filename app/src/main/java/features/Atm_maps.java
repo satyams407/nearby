@@ -1,4 +1,4 @@
-package satyam.prashant.usict.tcs.aroundyou;
+package features;
 
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -28,6 +28,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.location.places.Places;
+
+import satyam.prashant.usict.tcs.aroundyou.GetNearbyPlacesData;
+import satyam.prashant.usict.tcs.aroundyou.R;
 
 
 public class Atm_maps extends FragmentActivity implements OnMapReadyCallback,

@@ -44,7 +44,7 @@
             android:value="AIzaSyCWc5XLE7xR9IV7vJj6hySHHCR2xlRs96g" />
 
         <activity
-            android:name=".Atm_maps"
+            android:name="features.Atm_maps"
             android:label="@string/title_activity_atm_maps"></activity>
     </application>
 
