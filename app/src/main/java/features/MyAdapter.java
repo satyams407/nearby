@@ -1,4 +1,4 @@
-package satyam.prashant.usict.tcs.aroundyou;
+package features;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import satyam.prashant.usict.tcs.aroundyou.R;
 
 /**
  * Created by Prashant on 22-03-2017.
